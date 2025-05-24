@@ -6,6 +6,7 @@ class Board:
     '''
 
     def __init__(self):
+        self.available_spaces = 9
         self.board = {'1':'1','2':'2','3':'3',
                       '4':'4','5':'5','6':'6',
                       '7':'7','8':'8','9':'9'}
@@ -25,13 +26,15 @@ class Board:
             This method validates if the selected space is available.
         Returns:
             Bool: If the selected space is available the method will return True,
-            otherwise it will return false.
+            otherwise it will return False.
         '''
         if space != self.board[space]:
-            self.board[space] = char
-            return False
-        else:
             print(f'The space {space} already contains {self.board[space]}')
+            return True
+        else:
+            self.board[space] = char
+            self.available_spaces -= 1
             return False
+            
             
             
