@@ -7,3 +7,9 @@ while controller.on_play:
     Header.print_tile()
     controller.board.print_board()
     controller.turns_manager()
+    controller.game_status()
+
+controller.clear_and_print()
+Header.print_tile()   
+controller.board.print_board()
+controller.game_status()
