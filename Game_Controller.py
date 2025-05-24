@@ -33,6 +33,10 @@ class Game_Controller:
           return f"Player X Starts."
     
     def winner_validation(self,player: pl.Player):
+       '''
+       Description:
+         This method verifies if one of the players has a winning combination on their selected spaces.
+       '''
        winning_combinations = [[1,2,3],[4,5,6],[7,8,9],
                                [1,4,7],[2,5,8],[3,6,9],
                                [1,5,9],[3,5,7]]
@@ -78,16 +82,19 @@ class Game_Controller:
           self.on_play = False
     
     def turns_manager(self):
-       
+       '''
+       Description:
+         This method manages which is the next player to select a space and put am X,O Character.
+       '''
        if self.next_turn == 1:
           self.starter_player()
        
        if self.next_turn % 2 != 0:
-          print(f'Turn {self.next_turn} - {self.board.available_spaces} Available spaces: Player {self.player_1.char}')  
+          print(f'Turn {self.next_turn}: Player {self.player_1.char}')  
           self.input_validation(self.player_1) 
 
        else:
-          print(f'Turn {self.next_turn} - {self.board.available_spaces} Available spaces: Player {self.player_2.char}')
+          print(f'Turn {self.next_turn}: Player {self.player_2.char}')
           self.input_validation(self.player_2) 
           
        
